@@ -2,9 +2,8 @@ import React from "react";
 
 const HomePage = () => {
   return (
-    <main className="bg-red-500">
-      <h1 className="text-12">This is Home Page</h1>
-      <p className="text-24">hello tailwind</p>
+    <main className="h-[calc(100vh-64px)] bg-black flex justify-center items-center">
+      <h1 className="text-3xl text-white">Home page coming soon</h1>
     </main>
   );
 };

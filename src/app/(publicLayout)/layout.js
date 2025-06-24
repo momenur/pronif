@@ -5,7 +5,6 @@ const PublicLayout = ({ children }) => {
     <div>
       <Navbar />
       {children}
-      <div>footer</div>
     </div>
   );
 };
