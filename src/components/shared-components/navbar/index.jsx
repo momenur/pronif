@@ -3,17 +3,9 @@
 import Image from "next/image";
 import { Menu, X } from "react-feather";
 import React, { useState } from "react";
-import { navItems } from "../helpers/uiData";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Services", href: "/services" },
-  { name: "Portfolio", href: "/portfolio" },
-  { name: "Contact", href: "/contact" },
-];
+import { navItems } from "../helpers/uiData";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,8 +13,8 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-lg">
-      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 h-[85px]">
+        <div className="flex items-center justify-between py-2">
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center flex-shrink-0">
@@ -30,7 +22,7 @@ const Navbar = () => {
                 alt="logo"
                 height={60}
                 width={180}
-                src="/logoIcon.png"
+                src="/logo.png"
                 className=""
               />
             </Link>
@@ -38,26 +30,27 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="items-center hidden space-x-8 md:flex">
-            {navigation.map((item) => {
-              const isActive = pathname === item.href;
+            {navItems?.map((item) => {
+              const { id, path, name } = item;
+              const isActive = pathname === path;
               return (
                 <Link
-                  key={item.name}
-                  href={item.href}
+                  key={id}
+                  href={path}
                   className={`relative px-3 py-2 text-sm font-medium transition-all duration-1000 ease-in-out ${
                     isActive
                       ? "text-blue-600"
                       : "text-gray-700 hover:text-blue-600"
                   }`}
                 >
-                  {item.name}
-                  {/* Active indicator */}
+                  {name}
+
                   <span
                     className={`absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform transition-all duration-1000 ease-in-out ${
                       isActive ? "scale-x-100" : "scale-x-0"
                     }`}
                   />
-                  {/* Hover indicator */}
+
                   <span
                     className={`absolute bottom-0 left-0 w-full h-0.5 bg-blue-400 transform transition-all duration-300 ease-in-out ${
                       isActive ? "scale-x-0" : "scale-x-0 hover:scale-x-100"
@@ -67,6 +60,10 @@ const Navbar = () => {
               );
             })}
           </div>
+
+          <button className="border-[#268AFF] border hover:bg-[#1f6fd4] text-[#1f6fd4] hover:text-white text-sm py-1.5 px-4 rounded-sm transition-colors duration-200 hidden md:block">
+            Login
+          </button>
 
           {/* Mobile menu button */}
           <div className="flex items-center md:hidden">
@@ -89,16 +86,19 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <div
         className={`md:hidden transition-all duration-300 ease-in-out ${
-          isOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
+          isOpen
+            ? "max-h-[calc(50vh-85px)] opacity-100 overflow-y-auto"
+            : "max-h-0 opacity-0 overflow-hidden"
         }`}
       >
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-50">
-          {navigation.map((item) => {
-            const isActive = pathname === item.href;
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-50 ">
+          {navItems.map((item) => {
+            const { id, path, name } = item;
+            const isActive = pathname === path;
             return (
               <Link
-                key={item.name}
-                href={item.href}
+                key={id}
+                href={path}
                 onClick={() => setIsOpen(false)}
                 className={`relative block px-3 py-2 text-base font-medium transition-all duration-200 ease-in-out ${
                   isActive
@@ -106,10 +106,15 @@ const Navbar = () => {
                     : "text-gray-700 hover:text-blue-600 hover:bg-gray-100"
                 }`}
               >
-                {item.name}
+                {name}
               </Link>
             );
           })}
+        </div>
+        <div className="mx-6">
+          <button className="border-[#268AFF] border hover:bg-[#1f6fd4] text-[#1f6fd4] hover:text-white text-sm py-1.5 rounded-sm transition-colors duration-200 md:hidden mb-8 w-full">
+            Login
+          </button>
         </div>
       </div>
     </nav>
