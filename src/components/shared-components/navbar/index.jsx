@@ -1,30 +1,23 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "react-feather";
 import React, { useState } from "react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navItems } from "../helpers/uiData";
+import { navItems } from "@/components/shared-components/helpers/uiData";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-lg">
-      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 h-[85px]">
+      <div className="px-4 mx-auto max-w-screen-2xl sm:px-6 lg:px-8 h-[85px]">
         <div className="flex items-center justify-between py-2">
-          {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center flex-shrink-0">
-              <Image
-                alt="logo"
-                height={60}
-                width={180}
-                src="/logo.png"
-                className=""
-              />
+              <Image alt="logo" height={60} width={180} src="/logo.png" />
             </Link>
           </div>
 
@@ -40,19 +33,19 @@ const Navbar = () => {
                   className={`relative px-3 py-2 text-sm font-medium transition-all duration-1000 ease-in-out ${
                     isActive
                       ? "text-blue-600"
-                      : "text-gray-700 hover:text-blue-600"
+                      : "text-gray-700 hover:text-primary"
                   }`}
                 >
                   {name}
 
                   <span
-                    className={`absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform transition-all duration-1000 ease-in-out ${
+                    className={`absolute bottom-0 left-0 w-full h-0.5 bg-primary-main transform transition-all duration-1000 ease-in-out ${
                       isActive ? "scale-x-100" : "scale-x-0"
                     }`}
                   />
 
                   <span
-                    className={`absolute bottom-0 left-0 w-full h-0.5 bg-blue-400 transform transition-all duration-300 ease-in-out ${
+                    className={`absolute bottom-0 left-0 w-full h-0.5 bg-primary-main transform transition-all duration-300 ease-in-out ${
                       isActive ? "scale-x-0" : "scale-x-0 hover:scale-x-100"
                     }`}
                   />
@@ -61,7 +54,7 @@ const Navbar = () => {
             })}
           </div>
 
-          <button className="border-[#268AFF] border hover:bg-[#1f6fd4] text-[#1f6fd4] hover:text-white text-sm py-1.5 px-4 rounded-sm transition-colors duration-200 hidden md:block">
+          <button className="border-primary border hover:bg-primary text-primary hover:text-white text-sm py-1.5 px-4 rounded-sm transition-colors duration-200 hidden md:block">
             Login
           </button>
 
@@ -69,7 +62,7 @@ const Navbar = () => {
           <div className="flex items-center md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 text-gray-700 transition-all duration-200 rounded-md hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+              className="inline-flex items-center justify-center p-2 text-gray-700 transition-all duration-200 rounded-md hover:text-primary bg-primary-main hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
               aria-expanded={isOpen}
             >
               <span className="sr-only">Open main menu</span>
@@ -102,8 +95,8 @@ const Navbar = () => {
                 onClick={() => setIsOpen(false)}
                 className={`relative block px-3 py-2 text-base font-medium transition-all duration-200 ease-in-out ${
                   isActive
-                    ? "text-blue-600 bg-blue-50 border-l-4 border-blue-600"
-                    : "text-gray-700 hover:text-blue-600 hover:bg-gray-100"
+                    ? "text-primary bg-blue-50 border-l-4 border-primary-main"
+                    : "text-gray-700 hover:text-primary hover:bg-gray-100"
                 }`}
               >
                 {name}
@@ -112,7 +105,7 @@ const Navbar = () => {
           })}
         </div>
         <div className="mx-6">
-          <button className="border-[#268AFF] border hover:bg-[#1f6fd4] text-[#1f6fd4] hover:text-white text-sm py-1.5 rounded-sm transition-colors duration-200 md:hidden mb-8 w-full">
+          <button className="border-primary border hover:bg-primary text-primary hover:text-white text-sm py-1.5 rounded-sm transition-colors duration-200 md:hidden mb-8 w-full">
             Login
           </button>
         </div>
@@ -122,39 +115,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-//  <nav className="h-16 lg:px-16 bg-gray-50 ">
-//       <div className="flex items-center justify-between h-full">
-//         <Image
-//           alt="logo"
-//           height={60}
-//           width={180}
-//           src="/logo.png"
-//           className="lg:h-[60px] lg:w-[180px] h-12 w-32"
-//         />
-
-//         <div className="flex gap-6">
-//           {navItems?.map((item) => {
-//             const { id, path, name } = item;
-
-//             return (
-//               <Link
-//                 key={id}
-//                 href={path}
-//                 className={`text-sm tracking-[3.5px] ${
-//                   pathName === path
-//                     ? "text-blue-600 font-semibold"
-//                     : "text-gray-950"
-//                 }`}
-//               >
-//                 {name}
-//               </Link>
-//             );
-//           })}
-//         </div>
-
-//         <button class="border-[#268AFF] border hover:bg-[#1f6fd4] text-[#1f6fd4] hover:text-white text-sm py-1.5 px-4 rounded-sm transition-colors duration-200">
-//           Login
-//         </button>
-//       </div>
-//     </nav>
