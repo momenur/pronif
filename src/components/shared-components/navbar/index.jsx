@@ -62,14 +62,13 @@ const Navbar = () => {
           <div className="flex items-center md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 text-gray-700 transition-all duration-200 rounded-md hover:text-primary bg-primary-main hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+              className="inline-flex items-center justify-center p-2 transition-all duration-200 rounded-md"
               aria-expanded={isOpen}
             >
-              <span className="sr-only">Open main menu</span>
               {isOpen ? (
-                <X className="block w-6 h-6 transition-transform duration-200 transform" />
+                <X className="text-red-500 transition-transform duration-200 transform size-7" />
               ) : (
-                <Menu className="block w-6 h-6 transition-transform duration-200 transform" />
+                <Menu className="transition-transform duration-200 transform size-7 text-primary" />
               )}
             </button>
           </div>
@@ -80,7 +79,7 @@ const Navbar = () => {
       <div
         className={`md:hidden transition-all duration-300 ease-in-out ${
           isOpen
-            ? "max-h-[calc(50vh-85px)] opacity-100 overflow-y-auto"
+            ? "max-h-[calc(90vh-85px)] opacity-100 overflow-y-auto"
             : "max-h-0 opacity-0 overflow-hidden"
         }`}
       >
