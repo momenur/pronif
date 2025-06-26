@@ -19,7 +19,7 @@ const HeroSection = () => {
   };
   return (
     <section
-      className="relative flex items-center justify-center min-h-[calc(100vh-75px)] overflow-hidden bg-gradient-to-br from-primary/5 via-secondary/10 to-primary-main/15"
+      className="relative flex items-center justify-center min-h-[calc(100vh-85px)] overflow-hidden bg-gradient-to-br from-primary/5 via-secondary/10 to-primary-main/15"
       onMouseMove={handleMouseMove}
     >
       {/* Animated Background Elements */}
@@ -122,17 +122,17 @@ const HeroSection = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <button className="px-8 py-4 font-semibold text-white transition-all duration-300 border rounded-lg shadow-lg bg-gradient-to-r from-primary to-primary-main hover:from-primary/90 hover:to-primary-main/90 text-16 hover:shadow-xl hover:shadow-primary/25 hover:scale-105 group border-primary/20">
-            Get Started Free
+          <button className="flex items-center px-8 py-4 font-semibold text-white transition-all duration-300 border rounded-lg shadow-lg bg-gradient-to-r from-primary to-primary-main hover:from-primary/90 hover:to-primary-main/90 text-16 hover:shadow-xl hover:shadow-primary/25 hover:scale-105 group border-primary/20">
+            <span> Get Started Free</span>
             <ChevronRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
           </button>
 
           <button
             variant="outline"
-            className="px-8 py-4 font-semibold transition-all duration-300 border-2 rounded-lg shadow-lg bg-gradient-to-r from-white/90 to-secondary/10 backdrop-blur-sm border-primary text-primary hover:bg-gradient-to-r hover:from-primary hover:to-primary-main hover:text-white text-16 hover:shadow-xl hover:shadow-secondary/25 hover:scale-105 group"
+            className="flex items-center px-8 py-4 font-semibold transition-all duration-300 border-2 rounded-lg shadow-lg bg-gradient-to-r from-white/90 to-secondary/10 backdrop-blur-sm border-primary text-primary hover:bg-gradient-to-r hover:from-primary hover:to-primary-main hover:text-white text-16 hover:shadow-xl hover:shadow-secondary/25 hover:scale-105 group"
           >
             <Play className="w-5 h-5 mr-2 transition-transform duration-300 group-hover:scale-110" />
-            Watch Demo
+            <span>Watch Demo</span>
           </button>
         </div>
 
