@@ -53,7 +53,7 @@ const Navbar = () => {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="relative px-4 py-2 transition-all duration-300 group rounded-xl hover:bg-primary/10"
+                    className="relative px-4 py-2 transition-all duration-300 group rounded-xl"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <div className="flex items-center space-x-2">
