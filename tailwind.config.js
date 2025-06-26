@@ -15,7 +15,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        border: "hsl(var(--border))",
+        border: {
+          DEFAULT: "#B7B7B7",
+          regular: "#797979",
+          dark: "#3B3B3B",
+          light: "#D8E0ED",
+        },
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
@@ -40,7 +45,16 @@ module.exports = {
         32: "32px",
         48: "48px",
       },
-      fontWeight: {},
+      fontWeight: {
+        thin: "100",
+
+        light: "300",
+        normal: "400",
+        medium: "500",
+        semibold: "600",
+        bold: "700",
+        extrabold: "800",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
