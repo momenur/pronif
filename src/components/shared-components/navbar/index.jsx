@@ -1,115 +1,161 @@
 "use client";
 
+import * as React from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { Menu, X } from "react-feather";
-import React, { useState } from "react";
-import { usePathname } from "next/navigation";
-import { navItems } from "@/components/shared-components/helpers/uiData";
+import { Menu, X, Home, User, Briefcase, Mail } from "react-feather";
 
+const navigation = [
+  { name: "Home", href: "/", icon: Home },
+  { name: "About", href: "/about", icon: User },
+  { name: "Services", href: "/services", icon: Briefcase },
+  { name: "Contact", href: "/contact", icon: Mail },
+];
 const Navbar = () => {
-  const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [scrolled, setScrolled] = React.useState(false);
 
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-lg">
-      <div className="px-4 mx-auto max-w-screen-2xl sm:px-6 lg:px-8 h-[85px]">
-        <div className="flex items-center justify-between py-2">
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center flex-shrink-0">
-              <Image alt="logo" height={60} width={180} src="/logo.png" />
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-white/90 backdrop-blur-md shadow-lg border-b border-border-light"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 lg:h-20">
+            {/* Logo with Animation */}
+            <Link href="/" className="flex items-center space-x-3 group">
+              <div className="relative">
+                <div className="flex items-center justify-center w-10 h-10 transition-transform duration-300 transform bg-gradient-to-br from-primary to-primary-main rounded-xl group-hover:rotate-12">
+                  <span className="font-bold text-white text-18">P</span>
+                </div>
+                <div className="absolute w-4 h-4 rounded-full -top-1 -right-1 bg-secondary animate-pulse"></div>
+              </div>
+              <span className="font-bold text-transparent text-20 lg:text-24 bg-gradient-to-r from-primary to-primary-main bg-clip-text">
+                Pronif
+              </span>
             </Link>
-          </div>
 
-          {/* Desktop Navigation */}
-          <div className="items-center hidden space-x-8 md:flex">
-            {navItems?.map((item) => {
-              const { id, path, name } = item;
-              const isActive = pathname === path;
-              return (
-                <Link
-                  key={id}
-                  href={path}
-                  className={`relative px-3 py-2 text-sm font-medium transition-all duration-1000 ease-in-out ${
-                    isActive
-                      ? "text-blue-600"
-                      : "text-gray-700 hover:text-primary"
-                  }`}
-                >
-                  {name}
+            {/* Desktop Navigation */}
+            <div className="items-center hidden space-x-1 lg:flex">
+              {navigation.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="relative px-4 py-2 transition-all duration-300 group rounded-xl hover:bg-primary/10"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <div className="flex items-center space-x-2">
+                      <Icon
+                        size={18}
+                        className="text-gray-600 transition-colors duration-300 transform group-hover:text-primary group-hover:scale-110"
+                      />
+                      <span className="font-medium text-gray-700 transition-colors duration-300 text-14 group-hover:text-primary">
+                        {item.name}
+                      </span>
+                    </div>
+                    <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-main transform -translate-x-1/2 group-hover:w-full transition-all duration-300"></div>
+                  </Link>
+                );
+              })}
+            </div>
 
-                  <span
-                    className={`absolute bottom-0 left-0 w-full h-0.5 bg-primary-main transform transition-all duration-1000 ease-in-out ${
-                      isActive ? "scale-x-100" : "scale-x-0"
-                    }`}
-                  />
+            {/* Desktop CTA */}
+            <div className="items-center hidden space-x-4 lg:flex">
+              <button className="relative px-4 py-2 font-medium text-gray-700 transition-colors duration-300 text-14 hover:text-primary group">
+                Sign In
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></div>
+              </button>
+              <button className="px-6 py-3 bg-gradient-to-r from-primary to-primary-main text-white text-14 font-semibold rounded-xl hover:shadow-lg hover:shadow-primary/25 transform hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group">
+                <span className="relative z-10">Get Started</span>
+                <div className="absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-r from-primary-main to-secondary group-hover:opacity-100"></div>
+              </button>
+            </div>
 
-                  <span
-                    className={`absolute bottom-0 left-0 w-full h-0.5 bg-primary-main transform transition-all duration-300 ease-in-out ${
-                      isActive ? "scale-x-0" : "scale-x-0 hover:scale-x-100"
-                    }`}
-                  />
-                </Link>
-              );
-            })}
-          </div>
-
-          <button className="border-primary border hover:bg-primary text-primary hover:text-white text-sm py-1.5 px-4 rounded-sm transition-colors duration-200 hidden md:block">
-            Login
-          </button>
-
-          {/* Mobile menu button */}
-          <div className="flex items-center md:hidden">
+            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 transition-all duration-200 rounded-md"
-              aria-expanded={isOpen}
+              className="relative p-2 transition-colors duration-300 lg:hidden rounded-xl hover:bg-gray-100"
             >
-              {isOpen ? (
-                <X className="text-red-500 transition-transform duration-200 transform size-7" />
-              ) : (
-                <Menu className="transition-transform duration-200 transform size-7 text-primary" />
-              )}
+              <div className="relative w-6 h-6">
+                <Menu
+                  size={24}
+                  className={`absolute inset-0 text-gray-700 transition-all duration-300 ${
+                    isOpen ? "rotate-180 opacity-0" : "rotate-0 opacity-100"
+                  }`}
+                />
+                <X
+                  size={24}
+                  className={`absolute inset-0 text-gray-700 transition-all duration-300 ${
+                    isOpen ? "rotate-0 opacity-100" : "-rotate-180 opacity-0"
+                  }`}
+                />
+              </div>
             </button>
           </div>
         </div>
-      </div>
 
-      {/* Mobile Navigation */}
-      <div
-        className={`md:hidden transition-all duration-300 ease-in-out ${
-          isOpen
-            ? "max-h-[calc(90vh-85px)] opacity-100 overflow-y-auto"
-            : "max-h-0 opacity-0 overflow-hidden"
-        }`}
-      >
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-50 ">
-          {navItems.map((item) => {
-            const { id, path, name } = item;
-            const isActive = pathname === path;
-            return (
-              <Link
-                key={id}
-                href={path}
-                onClick={() => setIsOpen(false)}
-                className={`relative block px-3 py-2 text-base font-medium transition-all duration-200 ease-in-out ${
-                  isActive
-                    ? "text-primary bg-blue-50 border-l-4 border-primary-main"
-                    : "text-gray-700 hover:text-primary hover:bg-gray-100"
-                }`}
-              >
-                {name}
-              </Link>
-            );
-          })}
+        {/* Mobile Menu */}
+        <div
+          className={`lg:hidden transition-all duration-300 ease-in-out ${
+            isOpen
+              ? "max-h-96 opacity-100"
+              : "max-h-0 opacity-0 overflow-hidden"
+          }`}
+        >
+          <div className="border-t bg-white/95 backdrop-blur-md border-border-light">
+            <div className="px-4 py-6 space-y-4">
+              {navigation.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center p-3 space-x-3 transition-all duration-300 rounded-xl hover:bg-primary/10 group"
+                    style={{
+                      animationDelay: `${index * 100}ms`,
+                      transform: isOpen ? "translateX(0)" : "translateX(-20px)",
+                      transition: `all 300ms ease-out ${index * 50}ms`,
+                    }}
+                  >
+                    <div className="flex items-center justify-center w-10 h-10 transition-transform duration-300 rounded-lg bg-gradient-to-br from-primary/10 to-primary-main/10 group-hover:scale-110">
+                      <Icon size={20} className="text-primary" />
+                    </div>
+                    <span className="font-medium text-gray-700 transition-colors duration-300 text-16 group-hover:text-primary">
+                      {item.name}
+                    </span>
+                  </Link>
+                );
+              })}
+
+              <div className="pt-4 space-y-3 border-t border-border-light">
+                <button className="w-full p-3 font-medium text-left text-gray-700 transition-colors duration-300 text-16 hover:text-primary">
+                  Sign In
+                </button>
+                <button className="w-full p-3 bg-gradient-to-r from-primary to-primary-main text-white text-16 font-semibold rounded-xl hover:shadow-lg hover:shadow-primary/25 transform hover:-translate-y-0.5 transition-all duration-300">
+                  Get Started
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="mx-6">
-          <button className="border-primary border hover:bg-primary text-primary hover:text-white text-sm py-1.5 rounded-sm transition-colors duration-200 md:hidden mb-8 w-full">
-            Login
-          </button>
-        </div>
-      </div>
-    </nav>
+      </nav>
+
+      {/* Spacer to prevent content from hiding behind fixed navbar */}
+      <div className="h-16 lg:h-20"></div>
+    </>
   );
 };
 
