@@ -53,10 +53,10 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(82,113,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(82,113,255,0.08)_1px,transparent_1px)] bg-[size:50px_50px]" />
       </div>
 
-      <div className="relative z-10 px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
+      <div className="relative z-10 px-4 pb-16 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
         {/* Badge */}
         <div
-          className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 to-secondary/15 backdrop-blur-sm border border-primary/20 shadow-lg mb-8 transition-all duration-1000 ${
+          className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 to-secondary/15 backdrop-blur-sm border border-primary/20 shadow-lg mb-6 transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
@@ -184,7 +184,7 @@ const HeroSection = () => {
 
       {/* Scroll Indicator */}
       <div
-        className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 transition-all duration-1000 delay-1000 ${
+        className={`absolute bottom-6 left-1/2 transform -translate-x-1/2 transition-all duration-1000 delay-1000 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
         }`}
       >
