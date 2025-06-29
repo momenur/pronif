@@ -59,9 +59,9 @@ const Navbar = () => {
                     <div className="flex items-center space-x-2">
                       <Icon
                         size={18}
-                        className="text-gray-600 transition-colors duration-300 transform group-hover:text-primary group-hover:scale-110"
+                        className="transition-colors duration-300 transform text-border-dark group-hover:text-primary group-hover:scale-110"
                       />
-                      <span className="font-medium text-gray-700 transition-colors duration-300 text-14 group-hover:text-primary">
+                      <span className="font-medium text-border-dark transition-colors duration-300 text-14 group-hover:text-primary tracking-[2px]">
                         {item.name}
                       </span>
                     </div>
@@ -73,7 +73,7 @@ const Navbar = () => {
 
             {/* Desktop CTA */}
             <div className="items-center hidden space-x-4 lg:flex">
-              <button className="relative px-4 py-2 font-medium text-gray-700 transition-colors duration-300 text-14 hover:text-primary group">
+              <button className="relative px-4 py-2 font-medium text-gray-700 transition-colors duration-300 text-14 hover:text-primary group tracking-[2px]">
                 Sign In
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></div>
               </button>
@@ -86,18 +86,19 @@ const Navbar = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="relative p-2 transition-colors duration-300 lg:hidden rounded-xl hover:bg-gray-100"
+              className="relative p-2 transition-colors duration-300 lg:hidden rounded-xl"
             >
               <div className="relative w-6 h-6">
                 <Menu
+                  strokeWidth={2}
                   size={24}
-                  className={`absolute inset-0 text-gray-700 transition-all duration-300 ${
+                  className={`absolute inset-0 text-primary transition-all duration-300 ${
                     isOpen ? "rotate-180 opacity-0" : "rotate-0 opacity-100"
                   }`}
                 />
                 <X
                   size={24}
-                  className={`absolute inset-0 text-gray-700 transition-all duration-300 ${
+                  className={`absolute inset-0 text-red transition-all duration-300 ${
                     isOpen ? "rotate-0 opacity-100" : "-rotate-180 opacity-0"
                   }`}
                 />
@@ -133,7 +134,7 @@ const Navbar = () => {
                     <div className="flex items-center justify-center w-10 h-10 transition-transform duration-300 rounded-lg bg-gradient-to-br from-primary/10 to-primary-main/10 group-hover:scale-110">
                       <Icon size={20} className="text-primary" />
                     </div>
-                    <span className="font-medium text-gray-700 transition-colors duration-300 text-16 group-hover:text-primary">
+                    <span className="font-medium text-border-dark transition-colors duration-300 text-16 group-hover:text-primary tracking-[1.5px]">
                       {item.name}
                     </span>
                   </Link>
@@ -141,7 +142,7 @@ const Navbar = () => {
               })}
 
               <div className="pt-4 space-y-3 border-t border-border-light">
-                <button className="w-full p-3 font-medium text-left text-gray-700 transition-colors duration-300 text-16 hover:text-primary">
+                <button className="w-full p-3 font-medium text-left text-gray-700 transition-colors duration-300 text-16 hover:text-primary tracking-[2px]">
                   Sign In
                 </button>
                 <button className="w-full p-3 bg-gradient-to-r from-primary to-primary-main text-white text-16 font-semibold rounded-xl hover:shadow-lg hover:shadow-primary/25 transform hover:-translate-y-0.5 transition-all duration-300">

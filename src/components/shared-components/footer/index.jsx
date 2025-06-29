@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Facebook,
+  Globe,
   Instagram,
   Linkedin,
   Mail,
@@ -76,7 +77,7 @@ const Footer = () => {
 
       {/* Main Footer Content */}
       <div className="px-4 py-12 mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-6">
+        <div className="gap-8 lg:flex">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <h2 className="mb-4 font-bold text-24 text-secondary">
@@ -109,79 +110,83 @@ const Footer = () => {
           </div>
 
           {/* Discover */}
-          <div>
-            <h3 className="mb-4 font-semibold text-18 text-primary">
-              Discover
-            </h3>
-            <ul className="space-y-2">
-              {footerLinks.discover.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 transition-colors duration-300 text-14 hover:text-primary"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* About */}
-          <div>
-            <h3 className="mb-4 font-semibold text-18 text-primary">About</h3>
-            <ul className="space-y-2">
-              {footerLinks.about.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 transition-colors duration-300 text-14 hover:text-primary"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h3 className="mb-4 font-semibold text-18 text-primary">
-              Resources
-            </h3>
-            <ul className="space-y-2">
-              {footerLinks.resources.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 transition-colors duration-300 text-14 hover:text-primary"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Social */}
-          <div>
-            <h3 className="mb-4 font-semibold text-18 text-primary">Social</h3>
-            <ul className="space-y-2">
-              {footerLinks.social.map((link) => {
-                const IconComponent = link.icon;
-                return (
+          <div className="grid justify-between w-full grid-cols-2 gap-5 mt-6 md:grid-cols-4 md:mt-10 lg:mt-0">
+            <div>
+              <h3 className="mb-4 font-semibold text-18 text-primary">
+                Discover
+              </h3>
+              <ul className="space-y-2">
+                {footerLinks.discover.map((link) => (
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="flex items-center gap-2 text-gray-400 transition-colors duration-300 text-14 hover:text-primary"
+                      className="text-gray-400 transition-colors duration-300 text-14 hover:text-primary"
                     >
-                      <IconComponent size={16} />
                       {link.name}
                     </a>
                   </li>
-                );
-              })}
-            </ul>
+                ))}
+              </ul>
+            </div>
+
+            {/* About */}
+            <div>
+              <h3 className="mb-4 font-semibold text-18 text-primary">About</h3>
+              <ul className="space-y-2">
+                {footerLinks.about.map((link) => (
+                  <li key={link.name}>
+                    <a
+                      href={link.href}
+                      className="text-gray-400 transition-colors duration-300 text-14 hover:text-primary"
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div>
+              <h3 className="mb-4 font-semibold text-18 text-primary">
+                Resources
+              </h3>
+              <ul className="space-y-2">
+                {footerLinks.resources.map((link) => (
+                  <li key={link.name}>
+                    <a
+                      href={link.href}
+                      className="text-gray-400 transition-colors duration-300 text-14 hover:text-primary"
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Social */}
+            <div>
+              <h3 className="mb-4 font-semibold text-18 text-primary">
+                Social
+              </h3>
+              <ul className="space-y-2">
+                {footerLinks.social.map((link) => {
+                  const IconComponent = link.icon;
+                  return (
+                    <li key={link.name}>
+                      <a
+                        href={link.href}
+                        className="flex items-center gap-2 text-gray-400 transition-colors duration-300 text-14 hover:text-primary"
+                      >
+                        <IconComponent size={16} />
+                        {link.name}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -213,10 +218,13 @@ const Footer = () => {
       <div className="border-t border-primary/20 bg-gradient-to-r from-secondary/5 to-primary/5">
         <div className="px-4 py-6 mx-auto max-w-7xl">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="text-gray-500 text-12">
+            <p className="flex items-center gap-1 text-gray-500 text-12">
               Copyright ©2024 All rights reserved | This template is made with{" "}
-              <span className="text-primary">♥</span> by{" "}
-              <span className="font-medium text-primary">YourCompany.com</span>
+              <span className="text-primary">
+                <Globe size={14} />
+              </span>{" "}
+              by{" "}
+              <span className="font-medium text-primary text-14">pronif</span>
             </p>
             <div className="flex items-center gap-6">
               <a

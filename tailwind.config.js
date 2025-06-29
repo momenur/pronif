@@ -32,6 +32,9 @@ module.exports = {
           DEFAULT: "#5271ff",
           main: "#0cc0df",
         },
+        red: {
+          DEFAULT: "#de1304",
+        },
         secondary: {
           DEFAULT: "#5ce1e6",
           foreground: "hsl(var(--secondary-foreground))",
@@ -53,7 +56,7 @@ module.exports = {
 
         light: "300",
         normal: "400",
-        medium: "500",
+        medium: "550",
         semibold: "600",
         bold: "700",
         extrabold: "800",
