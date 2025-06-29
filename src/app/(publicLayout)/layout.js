@@ -1,4 +1,4 @@
-import Footer from "@/components/shared-components/footer/Footer";
+import Footer from "@/components/shared-components/footer";
 import Navbar from "@/components/shared-components/navbar";
 
 const PublicLayout = ({ children }) => {
