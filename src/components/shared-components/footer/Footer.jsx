@@ -47,7 +47,7 @@ const partners = [
 
 const Footer = () => {
   return (
-    <footer className="text-white bg-gradient-to-br from-gray-900 via-primary/10 to-secondary/5">
+    <footer className="text-white bg-gradient-to-br from-primary via-primary/10 to-secondary/5">
       {/* Newsletter Section */}
       <div className="border-b border-primary/20 bg-gradient-to-r from-primary/5 to-secondary/5">
         <div className="px-4 py-8 mx-auto max-w-7xl">
