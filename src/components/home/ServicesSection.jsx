@@ -53,7 +53,7 @@ const ServicesSection = () => {
     },
   ];
   return (
-    <section className="px-4 py-16 bg-gradient-to-b from-primary-main/15 via-primary/5 to-secondary/10">
+    <section className="px-4 py-16 bg-gradient-to-b from-primary-main/10 via-primary/5 to-white">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 text-center">
           <h2 className="mb-4 font-bold text-gray-900 text-32">Our Services</h2>
@@ -72,14 +72,14 @@ const ServicesSection = () => {
                 className="relative p-6 overflow-hidden transition-all duration-500 ease-out transform bg-white border shadow-lg group rounded-xl border-border-light hover:shadow-2xl hover:-translate-y-2 hover:scale-105 hover:border-primary/30"
               >
                 {/* Animated background gradient */}
-                <div className="absolute inset-0 transition-opacity duration-500 opacity-0 bg-gradient-to-r from-primary/8 to-secondary/8 group-hover:opacity-100"></div>
+                <div className="absolute inset-0 transition-opacity duration-500 opacity-0 bg-gradient-to-r from-primary/8 to-secondary/8 group-hover:opacity-100" />
 
                 {/* Sliding border effect */}
                 <div className="absolute inset-0 rounded-xl">
-                  <div className="absolute top-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-main group-hover:w-full transition-all duration-700 ease-out"></div>
-                  <div className="absolute top-0 right-0 w-0.5 h-0 bg-gradient-to-b from-primary-main to-secondary group-hover:h-full transition-all duration-700 ease-out delay-200"></div>
-                  <div className="absolute bottom-0 right-0 w-0 h-0.5 bg-gradient-to-l from-secondary to-primary group-hover:w-full transition-all duration-700 ease-out delay-400"></div>
-                  <div className="absolute bottom-0 left-0 w-0.5 h-0 bg-gradient-to-t from-primary to-secondary group-hover:h-full transition-all duration-700 ease-out delay-600"></div>
+                  <div className="absolute top-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-main group-hover:w-full transition-all duration-700 ease-out" />
+                  <div className="absolute top-0 right-0 w-0.5 h-0 bg-gradient-to-b from-primary-main to-secondary group-hover:h-full transition-all duration-700 ease-out delay-200" />
+                  <div className="absolute bottom-0 right-0 w-0 h-0.5 bg-gradient-to-l from-secondary to-primary group-hover:w-full transition-all duration-700 ease-out delay-400" />
+                  <div className="absolute bottom-0 left-0 w-0.5 h-0 bg-gradient-to-t from-primary to-secondary group-hover:h-full transition-all duration-700 ease-out delay-600" />
                 </div>
 
                 <div className="relative z-10">
