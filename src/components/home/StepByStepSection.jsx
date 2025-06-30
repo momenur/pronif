@@ -71,7 +71,7 @@ const StepByStepSection = () => (
                     className="mx-auto text-gray-400 sm:mx-0"
                   />
                 </div>
-                <h3 className="mb-2 font-semibold tracking-wide text-gray-700 text-14">
+                <h3 className="mb-2 font-semibold tracking-wide text-border-dark/90 text-14">
                   {step.headline}
                 </h3>
                 <p className="leading-relaxed text-gray-600 text-12">
@@ -106,7 +106,7 @@ const StepByStepSection = () => (
               </div>
 
               {/* Content */}
-              <div className="relative flex-1 min-w-0 p-5 overflow-hidden transition-all duration-500 rounded-lg bg-primary/90 group hover:shadow-2xl hover:-translate-y-2 hover:scale-105">
+              <div className="relative flex-1 min-w-0 p-5 overflow-hidden transition-all duration-500 rounded-lg bg-primary/90 hover:bg-primary group hover:shadow-2xl hover:-translate-y-2 hover:scale-105">
                 <div className="absolute inset-0 rounded-xl">
                   <div className="absolute top-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-main via-[#FFFF00] to-red group-hover:w-full transition-all duration-700 ease-out" />
                   <div className="absolute top-0 right-0 w-0.5 h-0 bg-gradient-to-b from-primary-main via-[#FFFF00] to-red group-hover:h-full transition-all duration-700 ease-out delay-200" />
@@ -114,12 +114,15 @@ const StepByStepSection = () => (
                   <div className="absolute bottom-0 left-0 w-0.5 h-0 bg-gradient-to-t from-primary-main via-[#FFFF00] to-red group-hover:h-full transition-all duration-700 ease-out delay-600" />
                 </div>
                 <div className="mb-2">
-                  <IconComponent size={24} className="text-gray-400" />
+                  <IconComponent
+                    size={24}
+                    className="transition-all duration-500 text-border-dark/50 group-hover:text-white"
+                  />
                 </div>
-                <h3 className="mb-2 font-semibold tracking-wide text-gray-700 text-14">
+                <h3 className="mb-2 font-semibold tracking-wide transition-all duration-500 text-border-dark/60 text-14 group-hover:text-white">
                   {step.headline}
                 </h3>
-                <p className="leading-relaxed text-gray-600 text-12">
+                <p className="leading-relaxed transition-all duration-500 group-hover:text-border-light text-12 text-border">
                   {step.description}
                 </p>
               </div>
