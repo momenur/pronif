@@ -53,7 +53,7 @@ const ServicesSection = () => {
     },
   ];
   return (
-    <section className="px-4 py-16 -mt-6 bg-gradient-to-b from-primary-main/15 via-primary/5 to-secondary/10">
+    <section className="px-4 py-16 bg-gradient-to-b from-primary-main/15 via-primary/5 to-secondary/10">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 text-center">
           <h2 className="mb-4 font-bold text-gray-900 text-32">Our Services</h2>
