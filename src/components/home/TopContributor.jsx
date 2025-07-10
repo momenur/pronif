@@ -31,13 +31,19 @@ const TopContributor = () => {
 
   return (
     <section
-      className="py-60 bg-black/10"
+      className="pt-48 pb-48 bg-black/10"
       style={{
-        clipPath: "polygon(0 0, 100% 15%, 100% 100%, 0 85%)",
+        clipPath: "polygon(0 0, 100% 10%, 100% 100%, 0 90%)",
         width: "100%",
       }}
     >
-      <div className="flex justify-between mx-auto max-w-7xl">
+      <h1 className="font-semibold text-center text-20 md:text-32 text-primary-main tracking-[3px]">
+        Top Contributors
+      </h1>
+      <p className="mb-16 text-center text-12 text-border-regular tracking-[2px]">
+        Celebrating those who make the biggest impact in our community.
+      </p>
+      <div className="flex justify-between mx-auto space-x-24 max-w-7xl">
         {userCards.map((user, index) => (
           <AppCard key={index}>
             <div className="space-y-4 ">
