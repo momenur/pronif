@@ -11,7 +11,7 @@ const FAQItem = ({ question, answer, isOpen, onToggle }) => {
         className="flex items-center justify-between w-full px-6 py-4 text-left transition-colors duration-200 bg-white hover:bg-gray-50"
         onClick={onToggle}
       >
-        <h3 className="font-medium text-gray-800 text-18">{question}</h3>
+        <h3 className="font-medium text-border-dark text-18">{question}</h3>
         <div className="flex-shrink-0 ml-4">
           {isOpen ? (
             <ChevronUp className="w-5 h-5 text-primary" />
@@ -27,7 +27,9 @@ const FAQItem = ({ question, answer, isOpen, onToggle }) => {
         } overflow-hidden`}
       >
         <div className="px-6 py-4 border-t bg-gray-50 border-border-light">
-          <p className="leading-relaxed text-gray-600 text-16">{answer}</p>
+          <p className="leading-relaxed text-border-regular text-16">
+            {answer}
+          </p>
         </div>
       </div>
     </div>
@@ -59,17 +61,17 @@ const FAQSection = () => {
     <div className="max-w-4xl px-6 py-12 mx-auto">
       {/* Header Section */}
       <div className="mb-12 text-center">
-        <h2 className="mb-4 font-bold text-gray-800 text-32">
+        <h2 className="mb-4 font-bold text-dark text-32">
           Frequently Asked Questions
         </h2>
-        <p className="mb-8 text-gray-600 text-18">
+        <p className="mb-8 text-border-dark text-18">
           Find answers to common questions about our services and policies
         </p>
 
         {/* Toggle All Button */}
         <button
           onClick={toggleAll}
-          className="inline-flex items-center px-6 py-3 font-medium text-white transition-colors duration-200 rounded-lg bg-primary hover:bg-primary/90"
+          className="py-3 px-5 bg-gradient-to-r from-primary to-primary-main text-white text-16 font-semibold rounded-xl hover:shadow-lg hover:shadow-primary/25 transform hover:-translate-y-0.5 transition-all duration-300"
         >
           {openItems.size === faqData?.length ? "Collapse All" : "Expand All"}
         </button>
@@ -101,7 +103,7 @@ const FAQSection = () => {
           <button className="px-6 py-3 font-medium text-white transition-colors duration-200 rounded-lg bg-primary hover:bg-primary/90">
             Contact Support
           </button>
-          <button className="px-6 py-3 font-medium transition-colors duration-200 border-2 rounded-lg border-primary text-primary hover:bg-primary hover:text-white">
+          <button className="px-6 py-3 bg-gradient-to-r from-primary to-primary-main text-white text-16 font-semibold rounded-xl hover:shadow-lg hover:shadow-primary/25 transform hover:-translate-y-0.5 transition-all duration-300">
             Live Chat
           </button>
         </div>
