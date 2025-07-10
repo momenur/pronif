@@ -2,7 +2,7 @@ import React from "react";
 
 import { Heart, MessageCircle, Star } from "react-feather";
 
-const AppCard = () => {
+const AppCard = ({ children }) => {
   return (
     <div className="flex items-center justify-center min-h-screen p-8 bg-gray-100">
       <div
@@ -13,9 +13,7 @@ const AppCard = () => {
           width: "350px",
         }}
       >
-        <div className="flex flex-col justify-between h-full">
-          <h1>hello</h1>
-        </div>
+        <div className="flex flex-col justify-between h-full">{children}</div>
       </div>
     </div>
   );
