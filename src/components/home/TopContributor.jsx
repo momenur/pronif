@@ -31,7 +31,7 @@ const TopContributor = () => {
 
   return (
     <section
-      className="pt-48 pb-48 bg-black/10"
+      className="px-5 pt-48 pb-48 bg-black/10"
       style={{
         clipPath: "polygon(0 0, 100% 10%, 100% 100%, 0 90%)",
         width: "100%",
@@ -43,7 +43,7 @@ const TopContributor = () => {
       <p className="mb-16 text-center text-12 text-border-regular tracking-[2px]">
         Celebrating those who make the biggest impact in our community.
       </p>
-      <div className="flex justify-between mx-auto space-x-24 max-w-7xl">
+      <div className="grid grid-cols-1 gap-10 mx-auto lg:grid-cols-3 md:grid-cols-2 max-w-7xl">
         {userCards.map((user, index) => (
           <AppCard key={index}>
             <div className="space-y-4 ">
