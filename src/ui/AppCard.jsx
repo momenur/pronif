@@ -2,9 +2,9 @@ import React from "react";
 
 const AppCard = ({ children }) => (
   <div
-    className="p-6 text-white bg-gradient-to-br from-primary to-primary-main rounded-2xl"
+    className="p-6 text-white bg-gradient-to-br from-primary/30 via-red to-primary-main"
     style={{
-      clipPath: "polygon(0 0, 80% 0, 100% 20%, 100% 100%, 20% 100%, 0 80%)",
+      clipPath: "polygon(0 0, 90% 0, 100% 10%, 100% 100%, 100% 100%, 0 100%)",
       width: "100%",
     }}
   >
