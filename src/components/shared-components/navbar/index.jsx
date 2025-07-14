@@ -4,8 +4,8 @@ import Link from "next/link";
 import { Menu, X } from "react-feather";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { navigation } from "@/components/shared-components/helpers/uiData";
 import AppLogo from "@/components/common-components/AppLogo";
+import { navigation } from "@/components/shared-components/helpers/uiData";
 
 const Navbar = () => {
   const pathName = usePathname();
@@ -31,7 +31,6 @@ const Navbar = () => {
       >
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
-            {/* Logo with Animation */}
             <AppLogo />
 
             {/* Desktop Navigation */}
