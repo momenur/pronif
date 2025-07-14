@@ -1,4 +1,5 @@
 import {
+  Activity,
   Briefcase,
   Facebook,
   Home,
@@ -6,12 +7,11 @@ import {
   Linkedin,
   Mail,
   Twitter,
-  User,
 } from "react-feather";
 
 export const navigation = [
   { name: "Home", href: "/", icon: Home },
-  { name: "About", href: "/about", icon: User },
+  { name: "Animation", href: "/animation", icon: Activity },
   { name: "Services", href: "/services", icon: Briefcase },
   { name: "Contact", href: "/contact", icon: Mail },
 ];
