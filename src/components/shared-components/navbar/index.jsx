@@ -1,22 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import { Menu, X } from "react-feather";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import path from "path";
-import { use, useEffect, useState } from "react";
-import { Menu, X, Home, User, Briefcase, Mail } from "react-feather";
+import { navigation } from "@/components/shared-components/helpers/uiData";
 
-const navigation = [
-  { name: "Home", href: "/", icon: Home },
-  { name: "About", href: "/about", icon: User },
-  { name: "Services", href: "/services", icon: Briefcase },
-  { name: "Contact", href: "/contact", icon: Mail },
-];
 const Navbar = () => {
+  const pathName = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const pathName = usePathname();
-  console.log({ pathName });
 
   useEffect(() => {
     const handleScroll = () => {
