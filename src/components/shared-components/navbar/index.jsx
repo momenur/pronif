@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import path from "path";
+import { use, useEffect, useState } from "react";
 import { Menu, X, Home, User, Briefcase, Mail } from "react-feather";
 
 const navigation = [
@@ -13,6 +15,8 @@ const navigation = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathName = usePathname();
+  console.log({ pathName });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,6 +53,7 @@ const Navbar = () => {
             {/* Desktop Navigation */}
             <div className="items-center hidden space-x-1 lg:flex">
               {navigation.map((item, index) => {
+                const isActive = pathName === item.href;
                 const Icon = item.icon;
                 return (
                   <Link
@@ -66,7 +71,11 @@ const Navbar = () => {
                         {item.name}
                       </span>
                     </div>
-                    <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-main transform -translate-x-1/2 group-hover:w-full transition-all duration-300" />
+                    <div
+                      className={`absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-main transform -translate-x-1/2  transition-all duration-300 ${
+                        isActive ? "w-full" : "group-hover:w-full"
+                      }`}
+                    />
                   </Link>
                 );
               })}
