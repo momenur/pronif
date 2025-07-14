@@ -1,7 +1,7 @@
 "use client";
 
-import * as React from "react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { Menu, X, Home, User, Briefcase, Mail } from "react-feather";
 
 const navigation = [
@@ -11,16 +11,17 @@ const navigation = [
   { name: "Contact", href: "/contact", icon: Mail },
 ];
 const Navbar = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [scrolled, setScrolled] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <>
       <nav
@@ -65,7 +66,7 @@ const Navbar = () => {
                         {item.name}
                       </span>
                     </div>
-                    <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-main transform -translate-x-1/2 group-hover:w-full transition-all duration-300"></div>
+                    <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-main transform -translate-x-1/2 group-hover:w-full transition-all duration-300" />
                   </Link>
                 );
               })}
