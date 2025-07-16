@@ -1,11 +1,5 @@
-import React from "react";
+import AnimationPage from "@/components/animation";
 
-const AnimationRootPage = () => {
-  return (
-    <div>
-      <h1>This is Animation Page. Animation Coming soon</h1>
-    </div>
-  );
-};
+const AnimationRootPage = () => <AnimationPage />;
 
 export default AnimationRootPage;
