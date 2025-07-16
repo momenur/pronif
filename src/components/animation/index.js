@@ -18,7 +18,7 @@ const AnimationPage = () => {
           width={400}
           alt="rotate image"
           src="/images/rotate.png"
-          className="absolute bottom-32 size-[400px] mr-10"
+          className="absolute bottom-32 size-[400px] mr-10 autoRotate"
         />
       </div>
     </div>
