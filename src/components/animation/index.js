@@ -11,7 +11,7 @@ const AnimationPage = () => {
           width={700}
           alt="rotate image"
           src="/images/rotateImageBg.png"
-          className="w-1/2"
+          className="w-[800px]"
         />
         <Image
           height={400}
