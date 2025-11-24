@@ -1,9 +1,21 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import Hero from "./Hero";
+import FeatureGrid from "./FeatureGrid";
+import ScrollTimeline from "./ScrollTimeline";
+import InteractiveCard from "./InteractiveCard";
+import CallToAction from "./CallToAction";
 
 const AnimationPage = () => {
-  <section> hello </section>;
+  return (
+    <main className="min-h-screen bg-background overflow-x-hidden">
+      <Hero />
+      <FeatureGrid />
+      <ScrollTimeline />
+      <InteractiveCard />
+      <CallToAction />
+    </main>
+  );
 };
 
 export default AnimationPage;
